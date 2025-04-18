@@ -12,7 +12,7 @@ public class SQLiteDialect extends Dialect {
         // usw.
     }
 
-    @Override
+    //->(wird benutzt, wenn man was überschreibt dann wird Override gemacht)<- @Override
     public boolean supportsIdentityColumns() {
         return true;
     }
