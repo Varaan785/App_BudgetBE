@@ -1,10 +1,7 @@
 package org.exampleVaraan.service;
 
-
-
 import org.exampleVaraan.entity.Ausgabe;
 import org.exampleVaraan.repository.AusgabeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,22 +9,17 @@ import java.util.List;
 @Service
 public class AusgabeService {
 
-    private final AusgabeRepository ausgabeRepository;
+    private final AusgabeRepository repository;
 
-    @Autowired
-    public AusgabeService(AusgabeRepository ausgabeRepository) {
-        this.ausgabeRepository = ausgabeRepository;
+    public AusgabeService(AusgabeRepository repository) {
+        this.repository = repository;
+    }
+
+    public Ausgabe save(Ausgabe ausgabe) {
+        return repository.save(ausgabe);
     }
 
     public List<Ausgabe> getAll() {
-        return ausgabeRepository.findAll();
-    }
-
-    public Ausgabe create(Ausgabe ausgabe) {
-        return ausgabeRepository.save(ausgabe);
-    }
-
-    public void delete(Long id) {
-        ausgabeRepository.deleteById(id);
+        return repository.findAll();
     }
 }

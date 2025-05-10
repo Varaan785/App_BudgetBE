@@ -1,33 +1,29 @@
 package org.exampleVaraan.controller;
 
-
 import org.exampleVaraan.entity.Ausgabe;
 import org.exampleVaraan.service.AusgabeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/ausgaben")
-@CrossOrigin(origins = "*") // Für dein Frontend (z. B. React)
+@CrossOrigin(origins = "*")
 public class AusgabeController {
 
-    @Autowired
-    private AusgabeService ausgabeService;
+    private final AusgabeService service;
 
-    @GetMapping
-    public List<Ausgabe> getAll() {
-        return ausgabeService.getAll();
+    public AusgabeController(AusgabeService service) {
+        this.service = service;
     }
 
     @PostMapping
-    public Ausgabe create(@RequestBody Ausgabe ausgabe) {
-        return ausgabeService.create(ausgabe);
+    public Ausgabe speichern(@RequestBody Ausgabe ausgabe) {
+        return service.save(ausgabe);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        ausgabeService.delete(id);
+    @GetMapping
+    public List<Ausgabe> alle() {
+        return service.getAll();
     }
 }
