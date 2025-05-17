@@ -1,18 +1,25 @@
 package org.exampleVaraan.entity;
 
+
 import jakarta.persistence.*;
 
 @Entity
 public class Ausgabe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Verwende GenerationType.IDENTITY für SQLite
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String kategorie;
+    private String beschreibung;
+
     private double betrag;
 
-    // Getter und Setter
+    private String datum;
+
+    private String kategorie;
+
+    // --- Getter & Setter ---
+
     public Long getId() {
         return id;
     }
@@ -21,12 +28,12 @@ public class Ausgabe {
         this.id = id;
     }
 
-    public String getKategorie() {
-        return kategorie;
+    public String getBeschreibung() {
+        return beschreibung;
     }
 
-    public void setKategorie(String kategorie) {
-        this.kategorie = kategorie;
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
     }
 
     public double getBetrag() {
@@ -35,5 +42,21 @@ public class Ausgabe {
 
     public void setBetrag(double betrag) {
         this.betrag = betrag;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
+    public String getKategorie() {
+        return kategorie;
+    }
+
+    public void setKategorie(String kategorie) {
+        this.kategorie = kategorie;
     }
 }

@@ -26,4 +26,9 @@ public class AusgabeController {
     public List<Ausgabe> alle() {
         return service.getAll();
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
 }

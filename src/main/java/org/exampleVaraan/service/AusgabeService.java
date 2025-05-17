@@ -22,4 +22,8 @@ public class AusgabeService {
     public List<Ausgabe> getAll() {
         return repository.findAll();
     }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }
