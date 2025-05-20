@@ -39,7 +39,7 @@ public class SQLiteDialect extends Dialect {
 
             @Override
             public boolean supportsInsertSelectIdentity() {
-                return true;
+                return false;
             }
         };
     }
