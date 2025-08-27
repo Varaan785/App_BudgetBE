@@ -18,7 +18,7 @@ public class Ausgabe {
 
     private String kategorie;
 
-    // --- Getter & Setter ---
+
 
     public Long getId() {
         return id;
